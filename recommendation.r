@@ -31,9 +31,11 @@ movies_to_rate <- setdiff(colnames(MovieLense), already_rated)
 
 # Interative rating
 # Ask the User to rate a few movies
-m_to_r <- sample(movies_to_rate, 5) # Randomly select 5 movies
+# Randomly select 5 movies
+m_to_r <- sample(movies_to_rate, 5) 
 user_ratings <- rep(NA, length(m_to_r))
 
+# Prompt user for ratings
 for (i in 1:length(m_to_r)) {
   ans <- readline(prompt = paste("Rate", m_to_r[i], "(1-5, 0 to skip): "))
   ans <- as.numeric(ans)
@@ -65,7 +67,7 @@ new_user <- rep(NA, ncol(MovieLense))
 names(new_user) <- colnames(MovieLense)
 new_user[names(user_ratings_vector)] <- user_ratings_vector
 
-#Convert to realRatingMatrix
+#Convert to Matrix
 new_user <- matrix(new_user, nrow = 1,
                    dimnames = list(user = "new_user",
                                    items = colnames(MovieLense)))
