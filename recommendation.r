@@ -1,7 +1,6 @@
 # Load required libraries
 library(recommenderlab)
 library(dplyr)
-library(ggplot2)
 
 # Load the MovieLense dataset
 data("MovieLense")
@@ -9,7 +8,11 @@ data("MovieLense")
 # Load or create user ratigs CSV
 ratings_file <- "ratings.csv"
 
+# Create an empty ratings.csv if it doesn't exist
 if (file.exists(ratings_file))  {
+  user_ratings_df <- read.csv(ratings_file, stringsAsFactors = FALSE)
+  print("Loaded user ratings from CSV:")
+} else {
   starter_ratings <- data.frame(
     Movie = character(),
     Rating = numeric(),
@@ -18,10 +21,6 @@ if (file.exists(ratings_file))  {
   write.csv(starter_ratings, ratings_file, row.names = FALSE)
   cat("Created empty ratings.csv\n")
 }
-
-# Read user ratings from CSV
-user_ratings_df <- read.csv(ratings_file, stringsAsFactors = FALSE)
-print("Loaded user ratings from CSV:")
 
 # Convert to named vector of already rated movies
 already_rated <- user_ratings_df$Movie

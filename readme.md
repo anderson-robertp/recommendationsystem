@@ -31,8 +31,7 @@ VS Code
 
 # Future Work
 
-- Display output to the screen more clearly with better formatting
-- Adds more recomendation prompts with a movie is skipped 
+- Display output to the screen more clearly with better formatting 
 - Ensure at least 5 different R datatypes are used effectively  
 - Incorporate additional loops for enhanced interactivity  
 - Improve dataframe usage for filtering movies by genre 
@@ -63,4 +62,5 @@ VS Code
 - Cleaned up the recommendation display and improved console output.  
 - Verified use of multiple R datatypes (vectors, lists, matrices, dataframes, factors).  
 
-
+# Update 10/04/25 
+- Updated Readme
